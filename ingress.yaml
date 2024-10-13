@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rancher-demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - 48.216.176.165.nip.io
+    secretName: ssl-cert-production
+  ingressClassName: nginx
+  rules:
+  - host: 48.216.176.165.nip.io
+    http:
+      paths:
+      - path: /app
+        pathType: Prefix
+        backend:
+          service: 
+            name: rancher-demo
+            port:
+              number: 80

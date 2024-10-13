@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ssl-cert-staging
+  namespace: default
+spec:
+  secretName: ssl-cert-staging
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: 48.216.176.165.nip.io
+  dnsNames:
+  - 48.216.176.165.nip.io
