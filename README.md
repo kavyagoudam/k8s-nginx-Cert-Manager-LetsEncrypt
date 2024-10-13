@@ -1,4 +1,4 @@
-# AKS Nginx Cert manager and Let's encyrpt
+# Kubernetes Nginx Cert manager and Let's encyrpt
 
 ## Enable HTTPS for website running in kubernetes cluster
 TLS(Transport Layer Security) protocol add security layer on top of  http connection. TLS protocol wrap around the http connection, So that the data which exchanged between server and client is secured. To enable the HTTPS connection, server needs to have certificate.
