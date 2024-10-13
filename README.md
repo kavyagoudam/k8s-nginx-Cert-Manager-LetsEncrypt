@@ -13,12 +13,14 @@ In this project, We will achieve the following
   a. Kubernetes Cluster with admin access. if not you can create AKS in Microsoft Azure, using below command.
 
 ```cli
-$AKS_RG="rg-cert-demo"
-$AKS_NAME="aks-cert-demo"
+AKS_RG="rg-cert-demo"
+AKS_NAME="aks-cert-demo"
 az group create -n $AKS_RG -l eastus
 az aks create -g $AKS_RG -n $AKS_NAME --kubernetes-version "1.29.8" --node-count 3 --network-plugin azure
 az aks get-credentials -n $AKS_NAME -g $AKS_RG --overwrite-existing
 ```
+  b. clone the repo, and move inside the directory
+     
 
 2.  Nginx Controller setup
     Install the Nginx Controller
