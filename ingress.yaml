@@ -6,10 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     # nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - hosts:
-    - <your_IP>.nip.io
-    secretName: ssl-cert-production
+  # tls:
+  # - hosts:
+  #   - <your_IP>.nip.io
+  #   secretName: ssl-cert-production
   ingressClassName: nginx
   rules:
   - host: <your_IP>.nip.io
