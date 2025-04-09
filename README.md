@@ -74,12 +74,19 @@ az aks get-credentials -n $AKS_NAME -g $AKS_RG --overwrite-existing
     kubectl apply -f cluster-issuer-staging.yaml
     ```
     In cluster-issuer-production.yaml and cluster-issuer-staging.yaml,
+    
     kind:ClusterIssuer -> it depends on the type of issuer CLusterIssuer is to access the certificate across the namaspaces, Issuer is limited to within the namaspace.
+    
     acme -> protocol used to obtain the certificates.
+    
     server -> is where certificate request is sent to.
+    
     email -> to receive the information of your certificate.
+    
     privateKeySecretRef -> certificate information will be stored in a secrets.
+    
     solvers -> cert-manager will listen to solver, in this case it is ingress
+
     http01 -> is called challenge,a challenge is necessary is to prove that you are the owner of the domain and server. with http01 you can get certificate only to that domain.
     (another example of challenge is DNS-01, which helps to get wild card certificate)
 
@@ -90,7 +97,7 @@ az aks get-credentials -n $AKS_NAME -g $AKS_RG --overwrite-existing
     letsencrypt-production   True    51s
     letsencrypt-staging      True    48s
     ```
-5. Obtain the certificate
+6. Obtain the certificate
    Once ClusterIssuer status is True, Obtain the certificate
    replace <your_ip> with LB ip and apply the mentioned manifest
    ```
@@ -103,7 +110,7 @@ az aks get-credentials -n $AKS_NAME -g $AKS_RG --overwrite-existing
    ```
    Here, certificate will obtain tls certificate from the Issuer and stores in secrets.
 
-6. Configure the Ingress to use the staging certificate
+7. Configure the Ingress to use the staging certificate
    Edit the ingress yaml with following details.
    ```
    tls:
